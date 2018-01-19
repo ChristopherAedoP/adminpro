@@ -9,6 +9,10 @@ import { APP_ROUTES } from './app.routes';
 // COMPONENTES
 import { AppComponent } from './app.component';
 
+// SERVICIOS
+import { ServiceModule } from './services/service.module';
+
+
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { PagesModule } from './pages/pages.module';
@@ -21,14 +25,15 @@ import { IncrementadorComponent } from './components/incrementador/incrementador
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
-    // IncrementadorComponent
+    RegisterComponent
   ],
   imports: [
+    ServiceModule,
     BrowserModule,
     APP_ROUTES,
     PagesModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
