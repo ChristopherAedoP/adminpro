@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,7 +11,6 @@ import { AppComponent } from './app.component';
 // SERVICIOS
 import { ServiceModule } from './services/service.module';
 
-
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { PagesModule } from './pages/pages.module';
@@ -20,13 +18,8 @@ import { PagesModule } from './pages/pages.module';
 // temporal
 import { IncrementadorComponent } from './components/incrementador/incrementador.component';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent
-  ],
+  declarations: [AppComponent, LoginComponent, RegisterComponent],
   imports: [
     ServiceModule,
     BrowserModule,
@@ -38,4 +31,4 @@ import { IncrementadorComponent } from './components/incrementador/incrementador
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
