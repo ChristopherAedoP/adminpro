@@ -1,3 +1,4 @@
+import { LoginGuardGuard } from './../services/guards/login-guard.guard';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -12,13 +13,14 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 const pagesRoutes: Routes = [
   { path: '',
   component: PagesComponent,
+  canActivate: [LoginGuardGuard],
   children: [
-    { path: 'dashboard', component: DashboardComponent ,data: {titulo: 'Dashboard'} },
-    { path: 'progress', component: ProgressComponent  ,data: {titulo: 'Progress'} },
-    { path: 'graficas1', component: Graficas1Component  ,data: {titulo: 'Graficas'} },
-    { path: 'promesas', component: PromesasComponent ,data: {titulo: 'Promesas'}  },
-    { path: 'rxjs', component: RxjsComponent  ,data: {titulo: 'RxJs'} },
-    { path: 'account-settings', component: AccountSettingsComponent ,data: {titulo: 'Ajustes'} },
+    { path: 'dashboard', component: DashboardComponent , data: {titulo: 'Dashboard'} },
+    { path: 'progress', component: ProgressComponent  , data: {titulo: 'Progress'} },
+    { path: 'graficas1', component: Graficas1Component  , data: {titulo: 'Graficas'} },
+    { path: 'promesas', component: PromesasComponent , data: {titulo: 'Promesas'}  },
+    { path: 'rxjs', component: RxjsComponent  , data: {titulo: 'RxJs'} },
+    { path: 'account-settings', component: AccountSettingsComponent , data: {titulo: 'Ajustes'} },
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   ]
 
