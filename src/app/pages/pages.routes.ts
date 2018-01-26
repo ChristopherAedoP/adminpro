@@ -11,6 +11,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
 
+import { UsuariosComponent } from './usuarios/usuarios.component';
+
 const pagesRoutes: Routes = [
   {
     path: '',
@@ -47,6 +49,12 @@ const pagesRoutes: Routes = [
         path: 'perfil',
         component: ProfileComponent,
         data: { titulo: 'Perfil de Usuario' }
+      },
+      // mantenimientos
+      {
+        path: 'usuarios',
+        component: UsuariosComponent,
+        data: { titulo: 'Mantenimiento de Usuarios' }
       },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
     ]
