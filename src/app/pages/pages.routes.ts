@@ -1,7 +1,6 @@
 import { MedicoComponent } from './medicos/medico.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
-import { LoginGuardGuard } from './../services/guards/login-guard.guard';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -15,6 +14,9 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
+
+import { LoginGuardGuard, AdminGuard } from '../services/service.index';
 
 const pagesRoutes: Routes = [
   {
@@ -53,10 +55,16 @@ const pagesRoutes: Routes = [
         component: ProfileComponent,
         data: { titulo: 'Perfil de Usuario' }
       },
+      {
+        path: 'busqueda/:termino',
+        component: BusquedaComponent,
+        data: { titulo: 'Buscador' }
+      },
       // mantenimientos
       {
         path: 'usuarios',
         component: UsuariosComponent,
+        canActivate: [AdminGuard],
         data: { titulo: 'Mantenimiento de Usuarios' }
       },
       {

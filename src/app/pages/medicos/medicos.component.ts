@@ -36,37 +36,6 @@ export class MedicosComponent implements OnInit {
   mostrarModal(id: string) {
     this._mus.mostarModal('medicos', id);
   }
-  crearMedico() {
-    swal({
-      title: 'Nuevo Meedico',
-      text: 'Ingrese nombre para el nuevo medico.',
-      content: 'input',
-      button: {
-        text: 'Crear',
-        closeModal: false
-      },
-      icon: 'info',
-      buttons: true,
-      dangerMode: true
-    })
-      .then(nombre => {
-        if (!nombre) {
-          throw null;
-        }
-
-        this._hs.crearMedico(nombre).subscribe(resp => {
-          this.cargarMedicos();
-        });
-      })
-      .catch(err => {
-        if (err) {
-          swal('Error', 'No se creo el nuevo medico.', 'error');
-        } else {
-          swal.stopLoading();
-          swal.close();
-        }
-      });
-  }
 
   cambiarDesde(valor: number) {
     let desde = this.desde + valor;
