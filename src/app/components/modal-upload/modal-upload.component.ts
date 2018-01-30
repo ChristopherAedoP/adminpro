@@ -9,7 +9,6 @@ import { ModalUploadService } from './modal-upload.service';
   styles: []
 })
 export class ModalUploadComponent implements OnInit {
-  usuario: Usuario;
   imagenSubir: File;
   imagenTemp: string;
 

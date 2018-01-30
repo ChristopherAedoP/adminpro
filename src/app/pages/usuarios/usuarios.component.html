@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<div class="row animated fadeIn" *ngIf="cargando">
+<div class="row animated fadeIn" *ngIf="cargado">
   <div class="col-sm-12">
     <div class="alert alert-warning text-center" role="alert">
       <strong>Cargando</strong>
@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<div class="row animated fadeIn" *ngIf="!cargando">
+<div class="row animated fadeIn" *ngIf="!cargado">
   <div class="col-12">
     <div class="card">
       <div class="card-body">
@@ -44,7 +44,8 @@
           <tbody>
             <tr *ngFor="let usuario of usuarios">
               <td scope="row" class="w70">
-                <img (click)="mostrarModal(usuario._id)" [src]="usuario.img | imagen" class="pointer img-50 img-circle">
+                <img (click)="mostrarModal(usuario._id)" [src]="usuario.img | imagen" class="pointer img-50 img-circle" data-toggle="tooltip"
+                  data-placement="left" title="Cambiar imagen">
               </td>
               <td scope="row">{{usuario.email}}</td>
               <td scope="row">{{usuario.nombre}}</td>
