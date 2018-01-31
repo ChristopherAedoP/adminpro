@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 import { Router } from '@angular/router';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 
@@ -172,5 +173,27 @@ export class UsuarioService {
       );
       return true;
     });
+  }
+
+  renuevaToken() {
+    let url = URL_SERVICIOS + `/login/renuevatoken?token=${this.token}`;
+
+    return this._http
+      .get(url)
+      .map((resp: any) => {
+        this.token = resp.token;
+        localStorage.setItem('token', this.token);
+        console.log('Token Renovado');
+        return true;
+      })
+      .catch(err => {
+        this._router.navigate(['/login']);
+        swal(
+          'No e pudo renovsr el token',
+          'no fue posible recuperar el token',
+          'error'
+        );
+        return Observable.throw(err);
+      });
   }
 }
